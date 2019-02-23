@@ -6,4 +6,6 @@
 
 void basic_func();
 void array_func();
+void string_func();
+
 #endif
