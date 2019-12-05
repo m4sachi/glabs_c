@@ -101,7 +101,11 @@
     <ClCompile Include="array.c" />
     <ClCompile Include="basic.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="Pointers.c" />
+    <ClCompile Include="singlylinkedlist.c" />
+    <ClCompile Include="sort.c" />
     <ClCompile Include="string.c" />
+    <ClCompile Include="Tree.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h" />
