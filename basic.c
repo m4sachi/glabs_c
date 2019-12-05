@@ -2,21 +2,18 @@
 
 static void count_num_of_1()
 {
-   int number;
-   int count = 0, i;
+   int number, count=0;
    printf("Enter a number:");
    fflush(stdout);
    scanf("%d", &number);
 
-   for (i = 0; i < sizeof(number) * 8; i++)
+   while(number)
    {
-      if (number & (1 << i))
-      {
-         count++;
-      }
+         ++count;
+         number &= (number - 1);
    }
 
-   printf("The number of 1 in %d = %d\n", number, count);
+   printf("The number of 1 = %d\n", count);
 
 }
 
