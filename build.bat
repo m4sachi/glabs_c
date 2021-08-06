@@ -1,1 +1,6 @@
-gcc main.c basic.c array.c string.c
+msbuild /p:Configuration=Release /p:Platform=x64
+msbuild /p:Configuration=Release /p:Platform=x86
+msbuild /p:Configuration=Debug /p:Platform=x64
+msbuild /p:Configuration=Debug /p:Platform=x86
+
+
