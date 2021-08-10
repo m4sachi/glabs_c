@@ -10,3 +10,12 @@
 #menu.h ---> It have the header defnitions and global routine function calls.
 
 #For e.g anybody wants to add a  new section called string. create a new file string.c and string.h and use the extern functions in menu.c to call.
+
+
+
+
+Build the Program:
+
+- Open developer command prompt for VS2019
+- goto the head of the folder
+- run build.bat
