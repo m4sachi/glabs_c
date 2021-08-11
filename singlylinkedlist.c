@@ -316,7 +316,50 @@ void FindNthNodeFromLast_Slist(PNODE *pHead)
    printf("The Node:%p\t %d\t %p", pSlowNode, pSlowNode->data, pSlowNode->ptr);
 }
 
+void DetectLoop(PNODE *pHead)
+{
+   PNODE pSlowPtr = *pHead;
+   PNODE pFastPtr = *pHead;
+   PNODE pTemp;
+   int LoopDetected=0;
+   int position=0; 
 
+   printf("Loop detection started\n");
+
+   while(pSlowPtr && pFastPtr && pFastPtr->ptr)
+   {
+      pSlowPtr = pSlowPtr->ptr;
+      pFastPtr = pFastPtr->ptr->ptr;
+
+      if(pSlowPtr == pFastPtr)
+      {
+         LoopDetected = 1;
+         break;
+      }
+   }
+
+   if(LoopDetected)
+   {
+      pFastPtr = *pHead;
+      while(pSlowPtr != pFastPtr)
+      {
+         pTemp = pSlowPtr;
+         pSlowPtr= pSlowPtr->ptr;
+         pFastPtr= pFastPtr->ptr;
+         position++;
+      }
+      printf("Loop Detected at position:%d\n", position);
+      printf("Node Address: %p\t Value:%d\t NextPtr:%p\n", pSlowPtr, pSlowPtr->data, pSlowPtr->ptr);
+
+      pTemp->ptr = NULL;
+
+      Display_SList(*pHead);
+   }
+   else
+      printf("No loop detected");
+
+
+}
 void Random_List(PNODE *pHead)
 {
    int i;
@@ -343,6 +386,48 @@ void Random_List(PNODE *pHead)
    Display_SList(*pHead);
 }
 
+void Loop_List(PNODE *pHead)
+{
+   int i;
+   int ListLength;
+   int LoopConnect;
+   PNODE pTemp1;
+   PNODE pTemp2;
+
+   // Delete the older list
+   while (*pHead)
+   {
+      Delete_SNode_Tail(pHead);
+   }
+
+   ListLength = rand();
+
+   ListLength = ListLength % 30;
+   if (ListLength < 10)
+      ListLength = 11;
+
+   // Create a new list
+   for (i = 0; i < ListLength; i++)
+   {
+      RandomAdd(pHead, rand()%100);
+   }
+
+   pTemp1 = pTemp2 = *pHead;
+   LoopConnect = rand();
+   LoopConnect = LoopConnect % 30;
+   LoopConnect++;
+
+   Display_SList(*pHead);
+   printf("\nInject the loop at position %d\n", LoopConnect);
+
+   for(i=0;i<LoopConnect;i++)
+      pTemp1= pTemp1->ptr;
+   while(pTemp2->ptr != NULL)
+      pTemp2 = pTemp2->ptr;
+
+   pTemp2->ptr = pTemp1;
+
+}
 
 void Single_Linkedlist()
 {
@@ -366,8 +451,10 @@ void Single_Linkedlist()
       printf("9: Finding Middle of Linkedlist\n");
       printf("10: Count the Nodes in Linkedlist\n");
       printf("11: Find the nth Node from Last of linkedlist\n");
+      printf("12: Detect the Loop and start of Loop\n");
 
-      printf("88: Random List creator\n");
+      printf("77: Random List creator\n");
+      printf("88: Random List creator with Loop\n");
       printf("99: Displays Nodes\n");
       printf("100: Exit\n");
       printf("Please Select: ");
@@ -409,8 +496,14 @@ void Single_Linkedlist()
       case 11:
          FindNthNodeFromLast_Slist(&pHead);
          break;
-      case 88:
+      case 12:
+         DetectLoop(&pHead);
+         break;
+      case 77:
          Random_List(&pHead);
+         break;
+      case 88:
+         Loop_List(&pHead);
          break;
       case 99:
          Display_SList(pHead);
