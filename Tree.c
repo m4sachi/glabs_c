@@ -9,7 +9,7 @@ typedef struct _NODE
 
 void DisplayNode(PNODE pHead)
 {
-   printf("Free:%p\t Data:%d\t LeftPtr:%p\t RightPtr:%p\n",
+   printf("Node:%p\t Data:%d\t LeftPtr:%p\t RightPtr:%p\n",
       pHead, pHead->data, pHead->pLeftPtr, pHead->pRightPtr);
 }
 void DeleteTree(PNODE pHead)
@@ -58,29 +58,6 @@ PNODE AddTreeNode(PNODE *pHead, int data)
    return *pHead;
 
 }
-void InsertTreeList(PNODE *pHead)
-{
-   int data;
-
-   DeleteTree(*pHead);
-
-   *pHead = NULL;
-
-   //printf("Enter Node Value:");
-   //fflush(stdout);
-   //scanf("%d", &data);
-
-   AddTreeNode(pHead, 60);
-
-   //Dummy write
-   AddTreeNode(pHead, 50);
-   AddTreeNode(pHead, 40);
-   AddTreeNode(pHead, 65);
-   AddTreeNode(pHead, 20);
-   AddTreeNode(pHead, 45);
-   AddTreeNode(pHead, 30);
-}
-
 
 void InOrderTraversal(PNODE pHead)
 {
@@ -175,6 +152,47 @@ void FindMinTree(PNODE pHead)
    printf("\nMinimum value in Tree:%d", Min);
 }
 
+void CreateTree(PNODE *pHead)
+{
+   int i;
+   int TreeNodes;
+
+   DeleteTree(*pHead);
+
+   *pHead = NULL;
+
+   //printf("Enter Node Value:");
+   //fflush(stdout);
+   //scanf("%d", &data);
+
+
+   TreeNodes = rand();
+
+   TreeNodes = TreeNodes % 30;
+   if (TreeNodes < 10)
+      TreeNodes = 11;
+
+   // Create a new list
+   for (i = 0; i < TreeNodes; i++)
+   {
+      AddTreeNode(pHead, rand()%100);
+   }
+
+   InOrderTraversal(*pHead);
+
+#if 0
+   AddTreeNode(pHead, 60);
+
+   //Dummy write
+   AddTreeNode(pHead, 50);
+   AddTreeNode(pHead, 40);
+   AddTreeNode(pHead, 65);
+   AddTreeNode(pHead, 20);
+   AddTreeNode(pHead, 45);
+   AddTreeNode(pHead, 30);
+#endif
+}
+
 void Tree()
 {
    int choice;
@@ -201,7 +219,7 @@ void Tree()
       switch (choice)
       {
       case 1:
-         InsertTreeList(&pHead);
+         CreateTree(&pHead);
          break;
       case 2:
          InOrderTraversal(pHead);
