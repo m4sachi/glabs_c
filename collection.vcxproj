@@ -106,6 +106,8 @@
     <ClCompile Include="sort.c" />
     <ClCompile Include="string.c" />
     <ClCompile Include="Tree.c" />
+    <ClCompile Include="AvlTree.c" />
+    <ClCompile Include="TreeUtils.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h" />
