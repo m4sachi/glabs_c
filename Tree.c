@@ -1,15 +1,17 @@
 #include "main.h"
 
+#if 1
 typedef struct _NODE
 {
    int data;
    struct _NODE *pLeftPtr;
    struct _NODE *pRightPtr;
 }NODE, *PNODE;
+#endif
 
 void DisplayNode(PNODE pHead)
 {
-   printf("Node:%p\t Data:%d\t LeftPtr:%p\t RightPtr:%p\n",
+   printf("Node:%p\t Data:%02d\t LeftPtr:%p\t RightPtr:%p\n",
       pHead, pHead->data, pHead->pLeftPtr, pHead->pRightPtr);
 }
 void DeleteTree(PNODE pHead)
@@ -68,7 +70,11 @@ void InOrderTraversal(PNODE pHead)
    DisplayNode(pHead);
    InOrderTraversal(pHead->pRightPtr);
 }
-
+void PrintInOrderTraversal(PNODE pHead)
+{
+   printf("\nInOrderTraversal:\n");
+   InOrderTraversal(pHead);
+}
 
 void PreOrderTraversal(PNODE pHead)
 {
@@ -78,6 +84,11 @@ void PreOrderTraversal(PNODE pHead)
    DisplayNode(pHead);
    PreOrderTraversal(pHead->pLeftPtr);
    PreOrderTraversal(pHead->pRightPtr);
+}
+void PrintPreOrderTraversal(PNODE pHead)
+{
+   printf("\nPreOrderTraversal:\n");
+   PreOrderTraversal(pHead);
 }
 
 
@@ -89,6 +100,11 @@ void PostOrderTraversal(PNODE pHead)
    PostOrderTraversal(pHead->pLeftPtr);
    PostOrderTraversal(pHead->pRightPtr);
    DisplayNode(pHead);
+}
+void PrintPostOrderTraversal(PNODE pHead)
+{
+   printf("\nPostOrderTraversal:\n");
+   PostOrderTraversal(pHead);
 }
 
 int HeightTree(PNODE pHead)
@@ -102,9 +118,8 @@ int HeightTree(PNODE pHead)
       rh = HeightTree(pHead->pRightPtr);
 
    return (max(lh, rh) + 1);
-
 }
-void FindHeightTree(PNODE pHead)
+void PrintHeightTree(PNODE pHead)
 {
    int height = 0;
 
@@ -178,8 +193,15 @@ void CreateTree(PNODE *pHead)
       AddTreeNode(pHead, rand()%100);
    }
 
-   InOrderTraversal(*pHead);
 
+   PrintAsciiTree(*pHead);
+#if 0   
+   printf("\n");
+   PrintInOrderTraversal(*pHead);
+   PrintPreOrderTraversal(*pHead);
+   PrintPostOrderTraversal(*pHead);
+   PrintHeightTree(*pHead);
+#endif
 #if 0
    AddTreeNode(pHead, 60);
 
@@ -192,6 +214,19 @@ void CreateTree(PNODE *pHead)
    AddTreeNode(pHead, 30);
 #endif
 }
+
+void AddNode(PNODE pHead)
+{
+   int Data;
+   printf("Add a Node Value:");
+   fflush(stdout);
+   scanf("%d", &Data);
+
+   AddTreeNode(&pHead, Data);
+
+   PrintAsciiTree(pHead);
+}
+
 
 void Tree()
 {
@@ -210,10 +245,13 @@ void Tree()
       printf("5: Height of Tree\n");
       printf("6: Number of Elements in a Tree\n");
       printf("7: Minimum value in a Tree\n");
-      printf("100. Exit\n");
+      printf("8: Insert a Node\n\n");
+
+      printf("11: AVL tree Add\n");
+      printf("99: Display Tree\n");
+      printf("100: Exit\n");
       printf("Please select:");
       fflush(stdout);
-
       scanf("%d", &choice);
 
       switch (choice)
@@ -231,13 +269,22 @@ void Tree()
          PostOrderTraversal(pHead);
          break;
       case 5:
-         FindHeightTree(pHead);
+         PrintHeightTree(pHead);
          break;
       case 6:
          FindLengthTree(pHead);
          break;
       case 7:
          FindMinTree(pHead);
+         break;
+      case 8:
+         AddNode(pHead);
+         break;
+      case 11:
+         AVLTreeImplementaion();
+         break;
+      case 99:
+         PrintAsciiTree(pHead);
          break;
       case 100:
          break;

@@ -2,7 +2,6 @@
 
 void two_dimensional_array()
 {
-#include<stdio.h>
 
    int a[4][5] = { 0 };
    int i, j;
@@ -31,7 +30,7 @@ void two_dimensional_array()
    ptr = ptr + 1;
    printf("ptr + 1 = %p\n", ptr);
 
-   int **dptr = a;
+   int **dptr = (int **)a;
 
    printf("*dptr = %p\n", *dptr);
    *dptr = *dptr + 1;
