@@ -8,6 +8,7 @@ typedef struct _AvlNode
     struct _AvlNode *pRightPtr;
 }AVLNODE, *PAVLNODE;
 
+//Declaration to avoid code compialtion issues
 typedef struct _NODE
 {
    int data;
