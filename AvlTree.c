@@ -8,6 +8,7 @@ typedef struct _AvlNode
     struct _AvlNode *pRightPtr;
 }AVLNODE, *PAVLNODE;
 
+//Declaration to avoid code compialtion issues
 typedef struct _NODE
 {
    int data;
@@ -189,14 +190,17 @@ void AVLTree()
             pAvlHead = InsertAVLTree(pAvlHead, Data);
         else
             InsertAVLTree(pAvlHead, Data);
-        //DisplayAVLTree();
+        
+        // Print in pictorial form of tree.
         PrintAsciiTree((PNODE)pAvlHead);
+        
         printf("\nTree nodes Value(Value 1000 to exit):");
         fflush(stdout);
         scanf("%d", &Data);
    } while (1);   
 }
 
+/* Initial function to implement other AVLTree operations */
 void AVLTreeImplementaion()
 {
     int choice;
