@@ -199,6 +199,7 @@ void AVLTree()
    } while (1);   
 }
 
+/* Initial function to implement other AVLTree operations */
 void AVLTreeImplementaion()
 {
     int choice;
