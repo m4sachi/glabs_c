@@ -14,8 +14,14 @@
 
 
 
-Build the Program:
+Build the Program
+
+Windows:
 
 - Open developer command prompt for VS2019
 - goto the head of the folder
 - run build.bat
+
+Run:
+Compile using make utility.
+run 'make' from terminal by selecting the foldeer base.
