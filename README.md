@@ -22,6 +22,6 @@ Windows:
 - goto the head of the folder
 - run build.bat
 
-Run:
+Linux:
 Compile using make utility.
-run 'make' from terminal by selecting the foldeer base.
+run 'make' from terminal by selecting the folder base.
