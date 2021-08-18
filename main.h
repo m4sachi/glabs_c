@@ -4,6 +4,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+#define TODO
+
 void basic_func();
 void array_func();
 void string_func();
