@@ -1,10 +1,10 @@
 CC = gcc
-CFLAGS = -Wall
+CFLAGS = -Wall 
 LDFLAGS =
-OBJFILES = main.o array.o basic.o Pointers.o singlylinkedlist.o sort.o string.o Tree.o
+OBJFILES = main.o array.o basic.o Pointers.o singlylinkedlist.o sort.o string.o Tree.o AvlTree.o TreeUtils.o
 TARGET = collection
 all: $(TARGET)
-    $(TARGET): $(OBJFILES)
-    $(CC) $(CFLAGS) -o $(TARGET) $(OBJFILES) $(LDFLAGS)
+$(TARGET): $(OBJFILES)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJFILES) $(LDFLAGS)
 clean:
-    rm -f $(OBJFILES) $(TARGET) *~
+	rm -f $(OBJFILES) $(TARGET) *
