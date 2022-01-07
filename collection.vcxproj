@@ -108,6 +108,7 @@
     <ClCompile Include="Tree.c" />
     <ClCompile Include="AvlTree.c" />
     <ClCompile Include="TreeUtils.c" />
+    <ClCompile Include="google_crack.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h" />
