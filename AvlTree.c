@@ -8,6 +8,7 @@ typedef struct _AvlNode
     struct _AvlNode *pRightPtr;
 }AVLNODE, *PAVLNODE;
 
+//Declaration to avoid code compialtion issues
 typedef struct _NODE
 {
    int data;
@@ -18,7 +19,7 @@ typedef struct _NODE
 
 PAVLNODE pAvlHead=NULL;
 
-
+/* Get the AvlNodeHeight */
 static int AVlNodeHeight(PAVLNODE pAvlNode)
 {
     int hl, hr;
@@ -29,6 +30,7 @@ static int AVlNodeHeight(PAVLNODE pAvlNode)
     return hl>hr?hl+1:hr+1;
 }
 
+/* Get the balance Factor */
 static int BalanceFactor(PAVLNODE pAvlNode)
 {
     int hl, hr;
@@ -39,6 +41,9 @@ static int BalanceFactor(PAVLNODE pAvlNode)
     return hl-hr;
 }
 
+/*
+ LL Rotation: if BF is 2 and the Child BF =1
+*/
 PAVLNODE LLRotation(PAVLNODE pNode)
 {
     PAVLNODE pLeft = pNode->pLeftPtr;
@@ -56,6 +61,9 @@ PAVLNODE LLRotation(PAVLNODE pNode)
     return pLeft;
 }
 
+/*
+ LR Rotation: if BF is 2 and the Child BF =-1
+*/
 PAVLNODE LRRotation(PAVLNODE pNode)
 {
     PAVLNODE pLeft = pNode->pLeftPtr;
@@ -77,6 +85,9 @@ PAVLNODE LRRotation(PAVLNODE pNode)
     return pLeftRight;
 }
 
+/*
+ RL Rotation: if BF is -2 and the Child BF = 1
+*/
 PAVLNODE RLRotation(PAVLNODE pNode)
 {
     PAVLNODE pRight = pNode->pRightPtr;
@@ -97,6 +108,9 @@ PAVLNODE RLRotation(PAVLNODE pNode)
     return pRightLeft;
 }
 
+/*
+ RR Rotation: if BF is -2 and the Child BF = -1
+*/
 PAVLNODE RRRotation(PAVLNODE pNode)
 {
     PAVLNODE pRight = pNode->pRightPtr;
@@ -176,14 +190,17 @@ void AVLTree()
             pAvlHead = InsertAVLTree(pAvlHead, Data);
         else
             InsertAVLTree(pAvlHead, Data);
-        //DisplayAVLTree();
+        
+        // Print in pictorial form of tree.
         PrintAsciiTree((PNODE)pAvlHead);
+        
         printf("\nTree nodes Value(Value 1000 to exit):");
         fflush(stdout);
         scanf("%d", &Data);
    } while (1);   
 }
 
+/* Initial function to implement other AVLTree operations */
 void AVLTreeImplementaion()
 {
     int choice;

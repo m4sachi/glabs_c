@@ -117,7 +117,7 @@ int HeightTree(PNODE pHead)
    if (pHead->pRightPtr)
       rh = HeightTree(pHead->pRightPtr);
 
-   return (max(lh, rh) + 1);
+   return (MAX(lh, rh) + 1);
 }
 void PrintHeightTree(PNODE pHead)
 {
