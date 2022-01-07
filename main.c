@@ -14,6 +14,7 @@ void main()
       printf("5. SinglyLinkedList\n");
       printf("6. Pointers\n");
       printf("7. Tree\n");
+      printf("8. Google Interview questions\n");
       printf("9. Exit\n");
       printf("Select the Section:");
       // Used for linux bash compiling
@@ -43,6 +44,9 @@ void main()
             break;
          case 7:
             Tree();
+            break;
+         case 8:
+            GoogleCrack();
             break;
          case 9:
             printf("Exiting the Program\n");
