@@ -7,7 +7,7 @@ void main()
    fflush(stdin);
    do {
 
-      printf("1. Basic\n");
+      printf("1. Basic\n")
       printf("2. Array\n");
       printf("3. Strings\n");
       printf("4. Sort\n");
