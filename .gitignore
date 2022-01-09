@@ -1,0 +1,28 @@
+*.zip
+*.pdf
+
+# VS Auto-Generated Files
+*.user
+*.suo
+*.sdf
+*.aps
+
+# VS 2015+
+*.VC.db*
+*.VC.opendb
+ipch*/
+
+# VS Build Output Files
+bin*/
+DebugWin32*/
+ReleaseWin32*/
+Debugx64*/
+Releasex64*/
+build*/
+Release*/
+Debug*/
+obj*/
+
+/Installer/obj*/
+
+.temp*/
